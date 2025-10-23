@@ -1,25 +1,43 @@
+from . import __version__ as app_version
+
 app_name = "erpnext_pk"
-app_title = "Erpnext Pk"
-app_publisher = "alibajwa007"
-app_description = "Erpnext Pk"
-app_email = "babargoraya878@gmail.com"
-app_license = "mit"
+app_title = "Pakistan Workspace"
+app_publisher = "ParaLogic"
+app_description = "Sales tax reporting and compliance for Pakistan"
+app_icon = "octicon octicon-file-directory"
+app_color = "grey"
+app_email = "info@paralogic.io"
+app_license = "GNU General Public License (v3)"
 
-# Apps
-# ------------------
+before_install = "erpnext_pk.install.before_install"
+after_install = "erpnext_pk.install.after_install"
+setup_wizard_stages = "erpnext_pk.setup.get_setup_stages"
 
-# required_apps = []
+app_include_js = "/assets/js/erpnext_pk.min.js"
 
-# Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "erpnext_pk",
-# 		"logo": "/assets/erpnext_pk/logo.png",
-# 		"title": "Erpnext Pk",
-# 		"route": "/erpnext_pk",
-# 		"has_permission": "erpnext_pk.api.permission.has_app_permission"
-# 	}
-# ]
+doctype_js = {
+	"Customer": "public/js/customer.js",
+	"Supplier": "public/js/supplier.js",
+	"Employee": "public/js/employee.js",
+	"Company": "public/js/company.js"
+}
+
+
+doc_events = {
+	"Customer": {
+		"validate": "erpnext_pk.events.validate_ntn_nic_strn_in_document",
+	},
+	"Supplier": {
+		"validate": "erpnext_pk.events.validate_ntn_nic_strn_in_document",
+	},
+	"Company": {
+		"validate": "erpnext_pk.events.validate_ntn_nic_strn_in_document",
+	},
+	"Employee": {
+		"validate": "erpnext_pk.events.validate_ntn_nic_strn_in_document",
+	}
+}
+
 
 # Includes in <head>
 # ------------------
@@ -48,11 +66,6 @@ app_license = "mit"
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
-# Svg Icons
-# ------------------
-# include app icons in desk
-# app_include_icons = "erpnext_pk/public/icons.svg"
-
 # Home Pages
 # ----------
 
@@ -61,7 +74,7 @@ app_license = "mit"
 
 # website user home page (by Role)
 # role_home_page = {
-# 	"Role": "home_page"
+#	"Role": "home_page"
 # }
 
 # Generators
@@ -69,15 +82,6 @@ app_license = "mit"
 
 # automatically create page for each record of this doctype
 # website_generators = ["Web Page"]
-
-# Jinja
-# ----------
-
-# add methods and filters to jinja environment
-# jinja = {
-# 	"methods": "erpnext_pk.utils.jinja_methods",
-# 	"filters": "erpnext_pk.utils.jinja_filters"
-# }
 
 # Installation
 # ------------
@@ -91,22 +95,6 @@ app_license = "mit"
 # before_uninstall = "erpnext_pk.uninstall.before_uninstall"
 # after_uninstall = "erpnext_pk.uninstall.after_uninstall"
 
-# Integration Setup
-# ------------------
-# To set up dependencies/integrations with other apps
-# Name of the app being installed is passed as an argument
-
-# before_app_install = "erpnext_pk.utils.before_app_install"
-# after_app_install = "erpnext_pk.utils.after_app_install"
-
-# Integration Cleanup
-# -------------------
-# To clean up dependencies/integrations with other apps
-# Name of the app being uninstalled is passed as an argument
-
-# before_app_uninstall = "erpnext_pk.utils.before_app_uninstall"
-# after_app_uninstall = "erpnext_pk.utils.after_app_uninstall"
-
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
@@ -118,11 +106,11 @@ app_license = "mit"
 # Permissions evaluated in scripted ways
 
 # permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
+#	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
 #
 # has_permission = {
-# 	"Event": "frappe.desk.doctype.event.event.has_permission",
+#	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
 # DocType Class
@@ -130,7 +118,7 @@ app_license = "mit"
 # Override standard doctype classes
 
 # override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
+#	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
 # Document Events
@@ -138,32 +126,32 @@ app_license = "mit"
 # Hook on document methods and events
 
 # doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
+#	"*": {
+#		"on_update": "method",
+#		"on_cancel": "method",
+#		"on_trash": "method"
+#	}
 # }
 
 # Scheduled Tasks
 # ---------------
 
 # scheduler_events = {
-# 	"all": [
-# 		"erpnext_pk.tasks.all"
-# 	],
-# 	"daily": [
-# 		"erpnext_pk.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"erpnext_pk.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"erpnext_pk.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"erpnext_pk.tasks.monthly"
-# 	],
+#	"all": [
+#		"erpnext_pk.tasks.all"
+#	],
+#	"daily": [
+#		"erpnext_pk.tasks.daily"
+#	],
+#	"hourly": [
+#		"erpnext_pk.tasks.hourly"
+#	],
+#	"weekly": [
+#		"erpnext_pk.tasks.weekly"
+#	]
+#	"monthly": [
+#		"erpnext_pk.tasks.monthly"
+#	]
 # }
 
 # Testing
@@ -175,34 +163,20 @@ app_license = "mit"
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "erpnext_pk.event.get_events"
+#	"frappe.desk.doctype.event.event.get_events": "erpnext_pk.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "erpnext_pk.task.get_dashboard_data"
+#	"Task": "erpnext_pk.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
-# Ignore links to specified DocTypes when deleting documents
-# -----------------------------------------------------------
-
-# ignore_links_on_delete = ["Communication", "ToDo"]
-
-# Request Events
-# ----------------
-# before_request = ["erpnext_pk.utils.before_request"]
-# after_request = ["erpnext_pk.utils.after_request"]
-
-# Job Events
-# ----------
-# before_job = ["erpnext_pk.utils.before_job"]
-# after_job = ["erpnext_pk.utils.after_job"]
 
 # User Data Protection
 # --------------------
@@ -232,13 +206,6 @@ app_license = "mit"
 # --------------------------------
 
 # auth_hooks = [
-# 	"erpnext_pk.auth.validate"
+#	"erpnext_pk.auth.validate"
 # ]
-
-# Automatically update python controller files with type annotations for this app.
-# export_python_type_annotations = True
-
-# default_log_clearing_doctypes = {
-# 	"Logging DocType Name": 30  # days to retain logs
-# }
 
