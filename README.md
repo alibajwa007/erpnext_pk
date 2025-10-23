@@ -1,6 +1,6 @@
 <div align="center">
 	<h2>ERPNext Workspace for Pakistan ☪️</h2>
-	<img src="https://raw.githubusercontent.com/ParaLogicTech/erpnext_pk/master/erpnext_pk/public/images/erpnext-pk-banner.png">
+	<img src="https://raw.githubusercontent.com/alibajwa007/erpnext_pk/master/erpnext_pk/public/images/erpnext-pk-banner.png">
 	</div>
 
 The Pakistan Workspace is a localization app for [ERPNext](https://github.com/frappe/erpnext) that adds regional custom fields for NIC, NTN, and STRN numbers, and reports for FBR tax compliance.
@@ -29,13 +29,13 @@ The Pakistan Workspace is a localization app for [ERPNext](https://github.com/fr
 ### 3. Other Features
 - HR Module: Employee NIC numnber, date of issue and date of expiry.
 
-<img src="https://raw.githubusercontent.com/ParaLogicTech/erpnext_pk/master/erpnext_pk/public/images/erpnext-pk-screenshot.png">
+<img src="https://raw.githubusercontent.com/alibajwa007/erpnext_pk/master/erpnext_pk/public/images/erpnext-pk-screenshot.png">
 
 ## Installation 🧑‍💻
 The Pakistan Workspace can be installed via Bench CLI on an active ERPNext site. 
 
 ```python
-bench get-app https://github.com/ParaLogicTech/erpnext_pk.git
+bench get-app https://github.com/alibajwa007/erpnext_pk.git
 bench --site [site name] install-app erpnext_pk
 ```
 
